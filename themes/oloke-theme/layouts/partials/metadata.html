@@ -1,0 +1,12 @@
+<div class="metadata">
+    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+    {{ with .PublishDate }}
+        <span class="date">{{ .Format $dateFormat }} - </span>
+    {{ end }}
+    {{ with .Params.tags }}
+        {{ range . }}
+            {{ $href := print (absURL "tags/") (urlize .) }}
+            <a href="{{ $href }}">{{ . }}</a>
+        {{ end }}
+    {{ end }}
+</div>

@@ -1,0 +1,8 @@
+<header>
+    {{ range .Site.Menus.main }}
+    <a href="{{ .URL }}">
+    {{ $text := print .Name | safeHTML }}
+    {{ $text }}
+    </a>
+    {{ end }}
+</header>

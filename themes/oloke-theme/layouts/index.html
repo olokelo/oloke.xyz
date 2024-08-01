@@ -1,0 +1,27 @@
+{{ define "main" }}
+    <div class="info">
+        <h1>{{ $.Site.Params.author }}</h1>
+        <hr>
+        <span class="desc">{{ $.Site.Params.description }}</span>
+        
+        <h2>My interests</h2>
+        <ul>
+        {{ range $k, $v := $.Site.Params.interests }}
+          <li>{{ $v }}</li>
+        {{ end }}
+        </ul>
+
+        <h2>Technologies</h2>
+        
+        <ul>
+        {{ range $k, $v := $.Site.Params.technologies }}
+          <li>{{ $v }}</li>
+        {{ end }}
+        </ul>
+
+        <h2>Other</h2>
+        <ul>
+            <li><a href="/contact">Contact Me</a></li>
+        </ul>
+    </div>
+{{ end }}

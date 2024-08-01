@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<hr>
+<ul>
+    {{ range .Pages.ByPublishDate.Reverse }}
+    <li class="ns">
+        <b><a href="{{ .RelPermalink }}">{{ .Title }}</a></b>
+        {{ if .IsPage }}
+            {{ partial "metadata.html" . }}
+        {{ end }}
+    </li>
+    {{ template "shortcodes/br_s.html" }}
+    {{ end }}
+</ul>
+{{ end }}
