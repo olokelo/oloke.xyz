@@ -110,6 +110,19 @@ Certbot: local-nginxproxymanager/nginx-full:latest, linux/amd64
 Node: local-nginxproxymanager/nginx-full:certbot, linux/amd64
 ```
 
-And of course your server should now support *State of the Art* Post-Quantum `X25519Kyber768Draft00` key exchange :)
+![Screenshot of Security tab from Chrome devtools](images/chrome-devtools-kyber.webp)
 
+Your server should now support *State of the Art* Post-Quantum `X25519Kyber768Draft00` key exchange.
 
+## Brotli
+
+You can now use `brotli` directive when you log into Nginx Proxy Manager Web UI. Just to go your Proxy Host, Edit, Advanced and put
+
+```
+brotli on;
+brotli_comp_level 6;
+brotli_min_length 512;
+brotli_types text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+```
+
+Enjoy :)
