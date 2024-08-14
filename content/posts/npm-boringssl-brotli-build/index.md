@@ -10,12 +10,10 @@ I really like [Nginx Proxy Manager](https://nginxproxymanager.com/) for its simp
 ## Building
 
 Turns out `Kyber + X25519` key exchange isn't yet supported in OpenSSL so we need to somehow compile Nginx with BoringSSL (the fork that Chrome uses).
-Also the lack of Brotli support bothered me [(and not only me)](https://github.com/NginxProxyManager/nginx-proxy-manager/issues/713) in NPM so I decided to also support it in my build. The file I modified the most was `docker-nginx-full/scripts/build-openresty` since it's actually responsible for configuring and building Nginx.
-Since Nginx Proxy Manager is actually made of two docker containers, we can modify their sources to build Nginx with custom parameters.
+The lack of Brotli support in NPM also bothered me [(and not only me apparently)](https://github.com/NginxProxyManager/nginx-proxy-manager/issues/713) so I decided to compile my build with support for it. The file I modified the most was `docker-nginx-full/scripts/build-openresty` since it's responsible for configuring and building Nginx.
+Since Nginx Proxy Manager is made out of two docker containers, we can modify their sources to build Nginx with custom parameters. I put relevant patches on my Github.
 
-I had to tinker a little to install new required dependencies in those Docker containers so I put relevant patches on my Github.
-
-Now the commands used to build Nginx Proxy Manager with my patches
+The commands needed to build Nginx Proxy Manager with my patches:
 
 ```shell
 $ git clone https://github.com/olokelo/nginx-proxy-manager-bssl-brotli.git --recurse-submodules
@@ -44,7 +42,7 @@ Monitor the logs to ensure everything has been built properly.
 
 ## Important notes
 
-I used `Docker version 27.1.1, build 63125853e3` however Docker is currently transitioning to `buildx` in the near future and it's possible some of my patches might not work in the future. I couldn't find a way to share build context between two BuildKit instances (we need to build two containers) so I opted for the deprecated `docker build`.
+I used `Docker version 27.1.1, build 63125853e3` however Docker is currently transitioning to `buildx` and it's possible some of my patches might not work in the future. I couldn't find a way to share the build context between two BuildKit instances (we need to build two containers) so I opted for the deprecated `docker build`.
 
 My patch will only build image for `amd64` architecture. If you need to build for a different one, modify the line that says `--platform linux/amd64` in `nginx-proxy-manager/scripts/buildx` file.
 
