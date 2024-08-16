@@ -254,7 +254,7 @@ I saw others reordering atoms instead of changing `chunk offset` so I probably d
 
 Here are all relevant links:
 
-https://github.com/essential61/mp4analyser
-https://www.bento4.com/documentation/mp4dump
-https://github.com/corkami/pics/blob/master/binary/mp4.png
-https://www.cnwrecovery.com/manual/MP4FileLayouts.html
+- https://github.com/essential61/mp4analyser
+- https://www.bento4.com/documentation/mp4dump
+- https://github.com/corkami/pics/blob/master/binary/mp4.png
+- https://www.cnwrecovery.com/manual/MP4FileLayouts.html
