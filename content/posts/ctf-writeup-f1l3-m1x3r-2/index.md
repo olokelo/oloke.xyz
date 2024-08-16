@@ -142,9 +142,9 @@ Now, where is `moov` atom? In `MP4 containers`, for some reason the default plac
 
 You may notice there are also other atoms like `mvhd`, `trak` and `tkhd`. These are all in the data range of `moov` which is `0x00054082 == 344194` bytes in size. That's perfectly normal. There can be other atoms under their parents. This forms a tree-like structure and helps keep things more organized.
 
-To view all atoms in this structure we can use [mp4analyzer](https://github.com/essential61/mp4analyser).
+To view all atoms in this structure we can use [mp4analyser](https://github.com/essential61/mp4analyser).
 
-![MP4 atom tree in mp4analyzer](images/mp4analyzer-sample.webp)
+![MP4 atom tree in mp4analyser](images/mp4analyser-sample.webp)
 
 I won't get into much detail but you can play around, the program is awesome and it helped me a lot when solving this challenge. Now we can go back to our troubled `.mp4` file.
 
@@ -220,11 +220,11 @@ At first I thought the challenge will be over at this point. `REDK` offsets were
 
 This part took me the most time as I couldn't figure out what was wrong. I tried moving the atoms around, changing track IDs but the result was the same. At this point I even started to wonder if flag was in the audio recording, maybe it was somewhere else and I missed it. After all it's very unusual to present the CTF flag in audio form.
 
-Later I created my own file and compared it with the corrupted one. After repairing the offsets, I opened the `flag.mp4` file in `mp4analyzer`. The one thing I found off was that `mp4analyzer` told me there were no samples found in `mdat` while in my `control` file, it had no problems with the samples.
+Later I created my own file and compared it with the corrupted one. After repairing the offsets, I opened the `flag.mp4` file in `mp4analyser`. The one thing I found off was that `mp4analyser` told me there were no samples found in `mdat` while in my `control` file, it had no problems with the samples.
 
 I took a look at the `stco` atom which contains information about chunks in the MP4 container and I noticed the chunk offset was set to `80`.
 
-![Side-by-side comparison of control and flag file in mp4analyzer](images/mp4analyzer-comparison.webp)
+![Side-by-side comparison of control and flag file in mp4analyser](images/mp4analyser-comparison.webp)
 
 In my control file the chunk offset pointed to the first bytes of `mdat` atom data and the offset was **absolute**. `flag.mp4` at the offset 80 had just a bunch of zeros in `moov` atom:
 
@@ -250,7 +250,7 @@ After opening the `flag.mp4` file with `mpv`, the recorded audio started to play
 
 I felt very rewarded I was one of only 20 people who solved this CTF challenge since 2019. I learned a lot about the `mp4` container and hopefully you did too. It really isn't all that scary, is it? :)
 
-I saw others reordering atoms instead of changing `chunk offset` so I probably did something wrong before. I might've written a Python script to automate the repair process but I felt doing this by hand is certainly more educative. I used `GHex` to edit the binary. `mp4analyzer` was tremendously useful during this challenge so I would recommend trying it out yourself.
+I saw others reordering atoms instead of changing `chunk offset` so I probably did something wrong before. I might've written a Python script to automate the repair process but I felt doing this by hand is certainly more educative. I used `GHex` to edit the binary. `mp4analyser` was tremendously useful during this challenge so I would recommend trying it out yourself.
 
 Here are all relevant links:
 
