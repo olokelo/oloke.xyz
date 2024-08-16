@@ -257,5 +257,4 @@ Here are all relevant links:
 https://github.com/essential61/mp4analyser
 https://www.bento4.com/documentation/mp4dump
 https://github.com/corkami/pics/blob/master/binary/mp4.png
-https://www.file-recovery.com/mp4-signature-format.htm
 https://www.cnwrecovery.com/manual/MP4FileLayouts.html

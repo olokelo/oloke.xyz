@@ -159,6 +159,14 @@ th {
     background-color: var(--grey-darker);
     color: var(--text);
 }
+/* Style the image */
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 96%;
+    height: auto;
+    padding 2%;
+}
 
 ::-webkit-scrollbar {
   width: 1rem;

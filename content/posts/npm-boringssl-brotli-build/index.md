@@ -2,7 +2,7 @@
 title: "Building custom Nginx Proxy Manager image with BoringSSL (adding TLS1.3 Hybrid Kyber and Brotli)"
 date: 2024-08-02T00:00:00+02:00
 draft: false
-tags: ["nginx proxy manager", "docker", "boringssl", "brotli", "kyber", "post-quantum"]
+tags: ["nginx proxy manager", "docker", "brotli", "kyber", "post-quantum"]
 ---
 
 I really like [Nginx Proxy Manager](https://nginxproxymanager.com/) for its simplicity and included tools. However recently I thought about setting up some new shiny stuff with Post-Quantum key exchange algorithm called `X25519Kyber768Draft00`. It's already well supported in modern web servers and browsers. Google Chrome even decided to turn it on by default [(learn more)](https://pq.cloudflareresearch.com/).
@@ -107,10 +107,10 @@ Base: debian:bookworm-slim, linux/amd64
 Certbot: local-nginxproxymanager/nginx-full:latest, linux/amd64
 Node: local-nginxproxymanager/nginx-full:certbot, linux/amd64
 ```
+Your server should now support *State of the Art* Post-Quantum `X25519Kyber768Draft00` key exchange.
 
 ![Screenshot of Security tab from Chrome devtools](images/chrome-devtools-kyber.webp)
 
-Your server should now support *State of the Art* Post-Quantum `X25519Kyber768Draft00` key exchange.
 
 ## Brotli
 
