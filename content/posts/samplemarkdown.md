@@ -2,7 +2,7 @@
 title: "Sample Markdown"
 date: 2024-08-01T00:00:00+02:00
 draft: false
-tags: ["Markdown", "Testing", "Hugo"]
+tags: ["markdown", "testing", "hugo"]
 ---
 
 Recently I finished working on my own [Hugo](https://gohugo.io) theme. It's meant to be minimalist and high contrast. I also wrote custom CSS for syntax highlighting within Hugo.

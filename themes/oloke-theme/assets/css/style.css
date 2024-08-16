@@ -44,12 +44,12 @@ h1 {
 
 h2 {
     font-size: 1.6rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 h3 {
     font-size: 1.4rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 a { 
@@ -67,7 +67,7 @@ a.highlight {
 }
 
 p {
-    margin: 1.5em 0;
+    margin: 1.2em 0;
 }
 
 ul {
@@ -138,6 +138,10 @@ header a {
 
 .br-m {
     height: 0.8em;
+}
+
+.darker {
+    filter: brightness(80%);
 }
 
 table {

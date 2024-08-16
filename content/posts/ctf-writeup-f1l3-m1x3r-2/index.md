@@ -101,7 +101,7 @@ Here's how a sample `.mp4` file should look like:
 ...
 ```
 
-The first thing we see is the `ftypisom` word which represents an `ftyp` atom. Also note the 4 bytes before every atom determine its length (big endian). In our case the length of `ftyp` atom is `0x14 == 20` bytes.
+The first thing we see is the `ftypisom` word which represents an `ftyp` atom with `isom` brand. Also note the 4 bytes before every atom determine its length (big endian). In our case the length of `ftyp` atom is `0x14 == 20` bytes.
 ```
            atom code  version
                v         v
